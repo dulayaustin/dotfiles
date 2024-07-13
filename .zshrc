@@ -115,6 +115,7 @@ export PATH="$HOME/.rbenv/shims:$PATH"
 eval "$(rbenv init -)"
 export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
