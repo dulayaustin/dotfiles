@@ -8,28 +8,17 @@ return {
 
 		local which_key = require("which-key")
 		which_key.setup()
-		which_key.register({
-			c = {
-				a = { "Code Action LSP" },
-			},
-
-      f = {
-        b = { "Neotree buffers reveal float" },
-        f = { "Telescope find_files" },
-        g = { "Telescope live_grep" },
-        h = { "Telescope help_tags" },
-      },
-
-			g = {
-				d = { "Definition LSP" },
-				f = { "Format file None-LS" },
-				r = { "References LSP" },
-			},
-
-      h = {
-       p = { "Gitsigns preview_hunk" },
-       t = { "Gitsigns toggle_current_line_blame" },
-      },
-		}, { prefix = "<leader>" })
+		which_key.add({
+			{ "<leader>ca", desc = "Code Action (LSP)" },
+			{ "<leader>fb", desc = "Buffers Reveal (Neotree)" },
+			{ "<leader>ff", desc = "Find File (Telescope)" },
+			{ "<leader>fg", desc = "Live Grep (Telescope)" },
+			{ "<leader>fh", desc = "Help Tags (Telescope)" },
+			{ "<leader>gd", desc = "Definition (LSP)" },
+			{ "<leader>gf", desc = "Format file (None-LS)" },
+			{ "<leader>gr", desc = "References (LSP)" },
+			{ "<leader>hp", desc = "Preview Hunk (Gitsigns)" },
+			{ "<leader>ht", desc = "Toggle Current Line Blame (Gitsigns)" },
+		})
 	end,
 }
