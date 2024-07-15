@@ -17,6 +17,9 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"onsails/lspkind-nvim",
+		},
 		event = "InsertEnter",
 
 		config = function()
@@ -45,6 +48,11 @@ return {
 				}, {
 					{ name = "buffer" },
 				}),
+				formatting = {
+					format = require("lspkind").cmp_format({
+						before = require("tailwind-tools.cmp").lspkind_format,
+					}),
+				},
 			})
 		end,
 	},

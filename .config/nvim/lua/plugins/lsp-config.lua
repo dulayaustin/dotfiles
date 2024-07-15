@@ -35,6 +35,16 @@ return {
 					client.server_capabilities.semanticTokensProvider = nil
 				end,
 			})
+			lspconfig.tailwindcss.setup({
+				capabilities = capabilities,
+				settings = {
+					tailwindCSS = {
+						experimental = {
+							classRegex = { [[\bclass:\s*'([^']*)']], [[\bclass:\s*\"([^"]*)"]] }, -- For .html.erb files
+						},
+					},
+				},
+			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
