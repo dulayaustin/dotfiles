@@ -5,11 +5,11 @@ return {
 	},
 
 	config = function()
-		vim.keymap.set("n", "<leader>t", ":TestNearest<CR>")
+		vim.keymap.set("n", "<leader>N", ":TestNearest<CR>")
 		vim.keymap.set("n", "<leader>T", ":TestFile<CR>")
-		vim.keymap.set("n", "<leader>a", ":TestSuite<CR>")
-		vim.keymap.set("n", "<leader>l", ":TestLast<CR>")
-		-- vim.keymap.set('n', '<leader>g', ':TestVisit<CR>')
+		vim.keymap.set("n", "<leader>A", ":TestSuite<CR>")
+		vim.keymap.set("n", "<leader>L", ":TestLast<CR>")
+		vim.keymap.set("n", "<leader>V", ":TestVisit<CR>")
 
 		vim.cmd("let test#strategy = 'vimux'")
 		vim.cmd("let g:test#preserve_screen = 0") -- Clear screen from previous run
