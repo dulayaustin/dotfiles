@@ -6,6 +6,7 @@ vim.cmd("set shiftwidth=2")
 -- vim.cmd("set smarttab")
 -- vim.cmd("set smartindent")
 vim.cmd("set clipboard=unnamed")
+vim.cmd("set number")
 
 -- Navigate vim panes better
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
