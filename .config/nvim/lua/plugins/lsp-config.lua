@@ -35,6 +35,9 @@ return {
 					client.server_capabilities.semanticTokensProvider = nil
 				end,
 			})
+			lspconfig.pylsp.setup({
+				capabilities = capabilities,
+			})
 			lspconfig.tailwindcss.setup({
 				capabilities = capabilities,
 				settings = {
