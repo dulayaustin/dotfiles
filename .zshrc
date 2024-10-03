@@ -117,7 +117,11 @@ export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
+# Rye path for python package manager
+source "$HOME/.rye/env"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 alias ls='colorls'
+alias be='bundle exec'
