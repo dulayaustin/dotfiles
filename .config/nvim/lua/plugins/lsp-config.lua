@@ -1,23 +1,19 @@
 return {
 	{
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		cmd = "Mason",
-
 		config = function()
 			require("mason").setup()
 		end,
 	},
 	{
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason-lspconfig.nvim",
+		dependencies = { "mason-org/mason.nvim", "neovim/nvim-lspconfig" },
 		event = "VeryLazy",
-		opts = {
-			auto_install = true,
-		},
 	},
 	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
-
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
@@ -30,7 +26,6 @@ return {
 			})
 			lspconfig.ruby_lsp.setup({
 				capabilities = capabilities,
-
 				on_attach = function(client)
 					client.server_capabilities.semanticTokensProvider = nil
 				end,
