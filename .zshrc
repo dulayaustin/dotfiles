@@ -107,12 +107,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+eval "$(rbenv init -)"
 export PATH=${PATH}:/usr/local/mysql/bin/:/Applications/Postgres.app/Contents/Versions/13/bin
 export PATH=/usr/local/bin:$PATH
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 export PATH=/usr/local/sbin:$PATH
 export PATH="$HOME/.rbenv/shims:$PATH"
-eval "$(rbenv init -)"
 export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
