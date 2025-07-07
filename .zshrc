@@ -125,3 +125,4 @@ source "$HOME/.rye/env"
 
 alias ls='colorls'
 alias be='bundle exec'
+export PATH=~/.npm-global/bin:$PATH
