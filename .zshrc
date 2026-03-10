@@ -1,5 +1,7 @@
 # Oh my Posh initialization and theme
-eval "$(oh-my-posh init zsh --config ~/.poshthemes/spaceship.omp.json)"
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  eval "$(oh-my-posh init zsh)"
+fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -102,13 +104,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-eval "$(rbenv init -)"
-export PATH=${PATH}:/usr/local/mysql/bin/:/Applications/Postgres.app/Contents/Versions/13/bin
-export PATH=/usr/local/bin:$PATH
-export PATH="/usr/local/opt/libpq/bin:$PATH"
-export PATH=/usr/local/sbin:$PATH
-export PATH="$HOME/.rbenv/shims:$PATH"
-export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(rbenv init - zsh)"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql/bin:$PATH"
+export PATH=~/.npm-global/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
@@ -117,6 +119,4 @@ source "$HOME/.rye/env"
 
 alias ls='colorls'
 alias be='bundle exec'
-export PATH=~/.npm-global/bin:$PATH
-
 
