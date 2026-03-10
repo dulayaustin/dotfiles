@@ -8,7 +8,7 @@ return {
 	},
 	{
 		"mason-org/mason-lspconfig.nvim",
-		dependencies = { "mason-org/mason.nvim", "neovim/nvim-lspconfig" },
+		dependencies = { "mason-org/mason.nvim" },
 		event = "VeryLazy",
 	},
 	{
@@ -16,33 +16,38 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local lspconfig = require("lspconfig")
 
-			lspconfig.lua_ls.setup({
+			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 			})
-			lspconfig.html.setup({
+
+			vim.lsp.config("html", {
 				capabilities = capabilities,
 			})
-			lspconfig.ruby_lsp.setup({
+
+			vim.lsp.config("ruby_lsp", {
 				capabilities = capabilities,
 				on_attach = function(client)
 					client.server_capabilities.semanticTokensProvider = nil
 				end,
 			})
-			lspconfig.pylsp.setup({
+
+			vim.lsp.config("pylsp", {
 				capabilities = capabilities,
 			})
-			lspconfig.tailwindcss.setup({
+
+			vim.lsp.config("tailwindcss", {
 				capabilities = capabilities,
 				settings = {
 					tailwindCSS = {
 						experimental = {
-							classRegex = { [[\bclass:\s*'([^']*)']], [[\bclass:\s*\"([^"]*)"]] }, -- For .html.erb files
+							classRegex = { [[\bclass:\s*'([^']*)']], [[\bclass:\s*\"([^"]*)"]] },
 						},
 					},
 				},
 			})
+
+			vim.lsp.enable({ "lua_ls", "html", "ruby_lsp", "pylsp", "tailwindcss" })
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
