@@ -120,3 +120,12 @@ source "$HOME/.rye/env"
 alias ls='colorls'
 alias be='bundle exec'
 
+
+# bun completions
+[ -s "/Users/austindulay/.bun/_bun" ] && source "/Users/austindulay/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export CLAUDE_CODE_NO_FLICKER=1
+export PATH=~/.npm-global/bin:$PATH
