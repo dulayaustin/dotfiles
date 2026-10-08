@@ -18,7 +18,7 @@ return {
 
 				if pcall(vim.treesitter.start, args.buf, lang) then
 					-- keep regex highlighting alongside treesitter (was additional_vim_regex_highlighting)
-					vim.bo[args.buf].syntax = "on"
+					vim.bo[args.buf].syntax = args.match
 				elseif vim.tbl_contains(ts.get_available(), lang) then
 					-- replaces auto_install: parser is fetched in the background, active on next open
 					ts.install(lang)
